@@ -40,15 +40,6 @@ const App = () => {
     void loadData();
   }, [loadData]);
 
-  useEffect(() => {
-    if (claimData?.claim_id) {
-      document.title = `Claim ${claimData.claim_id} — Medical Claim Review Dashboard`;
-    }
-    return () => {
-      document.title = 'Medical Claim Review Dashboard';
-    };
-  }, [claimData?.claim_id]);
-
   const model = useMemo(() => (claimData ? normalizeClaim(claimData) : null), [claimData]);
 
   const handleJumpToPage = useCallback(

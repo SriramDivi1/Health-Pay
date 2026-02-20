@@ -12,6 +12,7 @@ export interface PdfPanelProps {
 const PdfPanel = ({ pdfUrl, activePage, onPageRendered }: PdfPanelProps) => {
   const [numPages, setNumPages] = useState(0);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [retryKey, setRetryKey] = useState(0);
   const [highlightedPage, setHighlightedPage] = useState<number | null>(null);
   const [containerWidth, setContainerWidth] = useState(760);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -72,6 +73,7 @@ const PdfPanel = ({ pdfUrl, activePage, onPageRendered }: PdfPanelProps) => {
               onClick={() => {
                 setLoadError(null);
                 setNumPages(0);
+                setRetryKey((k) => k + 1);
               }}
             >
               Retry loading PDF
@@ -79,6 +81,7 @@ const PdfPanel = ({ pdfUrl, activePage, onPageRendered }: PdfPanelProps) => {
           </div>
         ) : (
           <Document
+            key={retryKey}
             file={pdfUrl}
             loading={<p className="text-sm text-dashboard-muted">Loading PDF...</p>}
             onLoadError={(error) => setLoadError(`Unable to load PDF: ${error.message}`)}
