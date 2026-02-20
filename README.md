@@ -296,13 +296,6 @@ To use another claim or PDF, replace these files or point the app at different U
 
 ---
 
-## Related documentation
-
-- **[docs/2_MINUTE_EXPLANATION.md](docs/2_MINUTE_EXPLANATION.md)** — Short (2–3 min) explanation of what the app is and how it works, for demos or standups.
-- **[docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md)** — Script for recording a walkthrough video of how the code works (entry point, data flow, PDF sync, components).
-
----
-
 ## License
 
 Private. See repository or organization for terms.
