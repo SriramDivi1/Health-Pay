@@ -51,15 +51,16 @@ The **Medical Claim Review Dashboard** loads extracted claim data (JSON) and a s
 graph TD
     A[index.html] -->|Loads| B[main.tsx]
     B -->|Mounts in ErrorBoundary| C[App.tsx]
-    C -->|Fetches json & pdf| D[public/assets/]
-    D -->|ClaimData URL| E[normalizeClaim()]
-    E -->|NormalizedViewModel| F[UI Components]
+    C -->|Fetches json & pdf| D["public/assets/"]
+    D -->|ClaimData URL| E["normalizeClaim()"]
+    E -->|NormalizedViewModel| F["UI Components"]
     
     F -->|Renders| G[ClaimSummaryCard]
     F -->|Renders| H[BillsSection]
     F -->|Renders| I[DocumentSegmentsCard]
     
-    H & I -->|onJumpToPage N| J[PdfPanel]
+    H -->|"onJumpToPage(N)"| J[PdfPanel]
+    I -->|"onJumpToPage(N)"| J[PdfPanel]
     J -->|Scrolls & Highlights| K[Target PDF Page]
 ```
 
